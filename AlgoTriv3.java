@@ -1,15 +1,9 @@
 import java.lang.Math;
 
-public class AlgoTriv2 {
+public class AlgoTriv3 {
 
     public static void main(String[] args) {
        
-        /* 
-         * "Dans les affichages j'en fait un affichetab(t) qui renvoie par exemple : 1,5,7,9.......11,47,72,.........250,256,260"
-         * Je n'ai pas compris ce que vous vouliez dire
-         */
-
-
         // Pour voir si les fonctions marchent
         test(10, 0, 10,1);
         test(10, 0, 10,2);
@@ -22,12 +16,26 @@ public class AlgoTriv2 {
         grosTest(100000, 0, 100000,3);
         
 
-        int [] tab = new int[1000000000];
-        remplir(tab, 0, 100000);
-        testRecherche(tab, 10579968);
+        int [] tab = new int[100000];
+        remplir(tab, 0, 10000);
+        testRecherche(tab, 1057);
+        afficherPMD(tab);
 
     }
     
+    public static void afficherPMD(int[] tab){
+        /*
+         * affiche les premiers, médians et derniers éléments du tableau
+         */
+        int i;
+        for(i=0;i<tab.length;i++){
+            if(i<5 || i>tab.length-5 || i==tab.length/2){
+                System.out.print(tab[i]+" ");
+            }
+        }
+        System.out.println();
+    }
+
     public static void triSelection(int[] tab) {
     /* 
      * Algorithme de tri par sélection
@@ -73,7 +81,7 @@ public class AlgoTriv2 {
     public static void triDrapeau(int[] tab) {
     /* 
      * Algorithme de tri par drapeau
-     */
+     */// Faire un affichage un peu graphique qui remplit l'écran
         int i, j, tmp;
         for (i = 0; i < tab.length - 1; i++) {
             if (tab[i] > tab[i + 1]) {
@@ -134,7 +142,6 @@ public class AlgoTriv2 {
     /* 
      * Trie un tableau d'entiers selon l'algorithme spécifié
      */
-        //constante
         final int SELECTION = 1;
         final int INSERTION = 2;
         final int DRAPEAU = 3;
